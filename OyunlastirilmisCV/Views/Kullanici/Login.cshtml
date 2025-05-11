@@ -1,0 +1,72 @@
+﻿@model OyunlastirilmisCV.Models.KullaniciGirisModeli
+@{
+    Layout = "~/Views/Shared/_LayoutGiris.cshtml";
+    ViewData["Title"] = "Giriş Yap";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Giriş Yap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background: #f0f2f5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-custom {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .img-right {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row card-custom bg-white">
+            <div class="col-md-6 p-5">
+                <h2 class="mb-4 text-center">🔐 Giriş Yap</h2>
+
+                @if (TempData["GirisBasarili"] != null)
+                {
+                    <div class="alert alert-success">@TempData["GirisBasarili"]</div>
+                }
+
+                <form asp-action="Login" asp-controller="Kullanici" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">E-Posta</label>
+                        <input asp-for="Eposta" class="form-control" />
+                        <span asp-validation-for="Eposta" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Şifre</label>
+                        <input asp-for="Sifre" type="password" class="form-control" />
+                        <span asp-validation-for="Sifre" class="text-danger small"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
+
+                    <p class="text-center mt-3">Hesabınız yok mu? <a href="/Kullanici/Register">Kayıt Ol</a></p>
+                </form>
+            </div>
+
+            <!-- Görsel Alanı -->
+            <div class="col-md-6 d-none d-md-block p-0">
+                <img src="/img/login-side.jpg" alt="Giriş Görseli" class="img-right">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

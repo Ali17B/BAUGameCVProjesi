@@ -1,0 +1,35 @@
+﻿@model OyunlastirilmisCV.Models.ProjeEkleModeli
+
+@{
+    ViewData["Title"] = "Proje Ekle";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center mt-4">🧰 Proje Ekle</h2>
+
+<form asp-action="ProjeEkle" method="post" class="w-50 mx-auto mt-4">
+    <div class="form-group mb-3">
+        <label>Proje Adı</label>
+        <input asp-for="ProjeAdi" class="form-control" />
+        <span asp-validation-for="ProjeAdi" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Açıklama</label>
+        <textarea asp-for="Aciklama" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="form-group mb-4">
+        <label>Zorluk Seviyesi</label>
+        <select asp-for="ZorlukSeviyesi" asp-items="Html.GetEnumSelectList<OyunlastirilmisCV.Entities.Zorluk>()" class="form-control"></select>
+        <span asp-validation-for="ZorlukSeviyesi" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Kaydet</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

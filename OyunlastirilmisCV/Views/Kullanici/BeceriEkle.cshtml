@@ -1,0 +1,36 @@
+﻿@model OyunlastirilmisCV.Models.BeceriEkleModeli
+
+@{
+    ViewData["Title"] = "Beceri Ekle";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center mt-4">🧠 Yetenek Ekle</h2>
+
+<form asp-action="BeceriEkle" method="post" class="w-50 mx-auto mt-4">
+    <div class="form-group mb-3">
+        <label>Beceri Adı</label>
+        <input asp-for="BeceriAdi" class="form-control" />
+        <span asp-validation-for="BeceriAdi" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Zorluk Seviyesi</label>
+        <select asp-for="ZorlukSeviyesi" asp-items="Html.GetEnumSelectList<OyunlastirilmisCV.Entities.Zorluk>()" class="form-control"></select>
+        <span asp-validation-for="ZorlukSeviyesi" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label>Seviye (1-10)</label>
+        <input asp-for="Seviye" type="number" class="form-control" />
+        <span asp-validation-for="Seviye" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Kaydet</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

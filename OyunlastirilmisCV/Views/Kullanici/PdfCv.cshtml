@@ -1,0 +1,56 @@
+﻿@model OyunlastirilmisCV.Entities.Kullanici
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Oyunlaştırılmış CV</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>@Model.AdSoyad - @Model.Sinifi</h1>
+    <p>Seviye: @Model.Seviye</p>
+
+    @if (!string.IsNullOrEmpty(Model.AvatarUrl))
+    {
+        <img src="@Model.AvatarUrl" width="100" height="100" style="border-radius:50%;" />
+    }
+
+    <div class="box">
+        <div class="title">🧠 Beceriler</div>
+        <ul>
+            @foreach (var item in Model.KullaniciBecerileri)
+            {
+                <li>@item.Beceri.Ad - Seviye: @item.Seviye (Zorluk: @item.Beceri.ZorlukSeviyesi)</li>
+            }
+        </ul>
+    </div>
+
+    <div class="box">
+        <div class="title">🧰 Projeler</div>
+        <ul>
+            @foreach (var proje in Model.Projeler)
+            {
+                <li><strong>@proje.ProjeAdi</strong>: @proje.Aciklama (Zorluk: @proje.ZorlukSeviyesi)</li>
+            }
+        </ul>
+    </div>
+</body>
+</html>
