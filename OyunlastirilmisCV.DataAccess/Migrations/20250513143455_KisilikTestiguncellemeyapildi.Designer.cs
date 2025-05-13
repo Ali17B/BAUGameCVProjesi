@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OyunlastirilmisCV.DataAccess;
 
@@ -11,9 +12,11 @@ using OyunlastirilmisCV.DataAccess;
 namespace OyunlastirilmisCV.DataAccess.Migrations
 {
     [DbContext(typeof(UygulamaDbContext))]
-    partial class UygulamaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250513143455_KisilikTestiguncellemeyapildi")]
+    partial class KisilikTestiguncellemeyapildi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,142 +123,6 @@ namespace OyunlastirilmisCV.DataAccess.Migrations
                             Mavi = "Bencil",
                             Sari = "Sosyal",
                             Yesil = "Sakin"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Kirmizi = "Rekabetçi",
-                            Mavi = "Dikkatli",
-                            Sari = "İnandırıcı",
-                            Yesil = "Kontrollü"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Kirmizi = "Becerikli",
-                            Mavi = "Saygılı",
-                            Sari = "Öğretici",
-                            Yesil = "Programa Bağlı"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Kirmizi = "Güç Veren",
-                            Mavi = "Tedbirli",
-                            Sari = "Lider",
-                            Yesil = "Halinden Memnun"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Kirmizi = "Pozitif",
-                            Mavi = "Planlı",
-                            Sari = "Destekleyici",
-                            Yesil = "Sabırlı"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Kirmizi = "Özgüvenli",
-                            Mavi = "Düzenli",
-                            Sari = "Doğal Karizmatik",
-                            Yesil = "Ağırbaşlı"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Kirmizi = "Dobra",
-                            Mavi = "Ciddi",
-                            Sari = "Neşeli",
-                            Yesil = "İletişimi Kuvvetli"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Kirmizi = "Otoriter",
-                            Mavi = "Resmi",
-                            Sari = "İletişim Seven",
-                            Yesil = "Arkadaşçıl"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Kirmizi = "Cesur",
-                            Mavi = "Detaycı",
-                            Sari = "Girişken",
-                            Yesil = "İş Birlikçi"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Kirmizi = "İş Güvenilir",
-                            Mavi = "Sanatla İlgilenen",
-                            Sari = "Yenilikçi Fikir Sahibi",
-                            Yesil = "Tutarli"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Kirmizi = "Bağımsız",
-                            Mavi = "Mantıksal",
-                            Sari = "Cömert",
-                            Yesil = "İlimli"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Kirmizi = "Sonuç Odaklı",
-                            Mavi = "Eleştiren",
-                            Sari = "İnsancıl",
-                            Yesil = "Hazır Cevap"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Kirmizi = "Harekete Geçiren",
-                            Mavi = "Gerçekçi",
-                            Sari = "Sıcak Kanlı",
-                            Yesil = "Arabulucu"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Kirmizi = "Azimli",
-                            Mavi = "Düşünce Yoğun",
-                            Sari = "Konuşkan",
-                            Yesil = "Hoşgörülü"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            Kirmizi = "Girişimci",
-                            Mavi = "Araştırmacı",
-                            Sari = "Hareketli",
-                            Yesil = "İyi Dinleyici"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            Kirmizi = "Pratik",
-                            Mavi = "Sayısal",
-                            Sari = "Hayalci",
-                            Yesil = "Hesaplayan"
-                        },
-                        new
-                        {
-                            Id = 19,
-                            Kirmizi = "Üretken",
-                            Mavi = "Analitik",
-                            Sari = "Empati Kurabilen",
-                            Yesil = "Sadık"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            Kirmizi = "Hızlı",
-                            Mavi = "Disiplinli",
-                            Sari = "Coşkulu",
-                            Yesil = "Dengeli"
                         });
                 });
 

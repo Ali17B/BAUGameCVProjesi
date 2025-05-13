@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OyunlastirilmisCV.DataAccess;
 
@@ -11,9 +12,11 @@ using OyunlastirilmisCV.DataAccess;
 namespace OyunlastirilmisCV.DataAccess.Migrations
 {
     [DbContext(typeof(UygulamaDbContext))]
-    partial class UygulamaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250513133004_KisilikTestiniEkledik")]
+    partial class KisilikTestiniEkledik
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,197 +71,6 @@ namespace OyunlastirilmisCV.DataAccess.Migrations
                     b.ToTable("KisilikTestiSonuclari");
                 });
 
-            modelBuilder.Entity("OyunlastirilmisCV.Entities.KisilikTestiSorusu", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Kirmizi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mavi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Sari")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Yesil")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("KisilikTestiSorulari");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Kirmizi = "Risk Alabilen",
-                            Mavi = "Analitik",
-                            Sari = "İyimser",
-                            Yesil = "Uyumlu"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Kirmizi = "İkna Edici",
-                            Mavi = "Ölçülü",
-                            Sari = "Enerjik",
-                            Yesil = "Güvenilir"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Kirmizi = "Sorumluluk Alan",
-                            Mavi = "Bencil",
-                            Sari = "Sosyal",
-                            Yesil = "Sakin"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Kirmizi = "Rekabetçi",
-                            Mavi = "Dikkatli",
-                            Sari = "İnandırıcı",
-                            Yesil = "Kontrollü"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Kirmizi = "Becerikli",
-                            Mavi = "Saygılı",
-                            Sari = "Öğretici",
-                            Yesil = "Programa Bağlı"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Kirmizi = "Güç Veren",
-                            Mavi = "Tedbirli",
-                            Sari = "Lider",
-                            Yesil = "Halinden Memnun"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Kirmizi = "Pozitif",
-                            Mavi = "Planlı",
-                            Sari = "Destekleyici",
-                            Yesil = "Sabırlı"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Kirmizi = "Özgüvenli",
-                            Mavi = "Düzenli",
-                            Sari = "Doğal Karizmatik",
-                            Yesil = "Ağırbaşlı"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Kirmizi = "Dobra",
-                            Mavi = "Ciddi",
-                            Sari = "Neşeli",
-                            Yesil = "İletişimi Kuvvetli"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Kirmizi = "Otoriter",
-                            Mavi = "Resmi",
-                            Sari = "İletişim Seven",
-                            Yesil = "Arkadaşçıl"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Kirmizi = "Cesur",
-                            Mavi = "Detaycı",
-                            Sari = "Girişken",
-                            Yesil = "İş Birlikçi"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Kirmizi = "İş Güvenilir",
-                            Mavi = "Sanatla İlgilenen",
-                            Sari = "Yenilikçi Fikir Sahibi",
-                            Yesil = "Tutarli"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Kirmizi = "Bağımsız",
-                            Mavi = "Mantıksal",
-                            Sari = "Cömert",
-                            Yesil = "İlimli"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Kirmizi = "Sonuç Odaklı",
-                            Mavi = "Eleştiren",
-                            Sari = "İnsancıl",
-                            Yesil = "Hazır Cevap"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Kirmizi = "Harekete Geçiren",
-                            Mavi = "Gerçekçi",
-                            Sari = "Sıcak Kanlı",
-                            Yesil = "Arabulucu"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Kirmizi = "Azimli",
-                            Mavi = "Düşünce Yoğun",
-                            Sari = "Konuşkan",
-                            Yesil = "Hoşgörülü"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            Kirmizi = "Girişimci",
-                            Mavi = "Araştırmacı",
-                            Sari = "Hareketli",
-                            Yesil = "İyi Dinleyici"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            Kirmizi = "Pratik",
-                            Mavi = "Sayısal",
-                            Sari = "Hayalci",
-                            Yesil = "Hesaplayan"
-                        },
-                        new
-                        {
-                            Id = 19,
-                            Kirmizi = "Üretken",
-                            Mavi = "Analitik",
-                            Sari = "Empati Kurabilen",
-                            Yesil = "Sadık"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            Kirmizi = "Hızlı",
-                            Mavi = "Disiplinli",
-                            Sari = "Coşkulu",
-                            Yesil = "Dengeli"
-                        });
-                });
-
             modelBuilder.Entity("OyunlastirilmisCV.Entities.Kullanici", b =>
                 {
                     b.Property<int>("Id")
@@ -278,10 +90,6 @@ namespace OyunlastirilmisCV.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Eposta")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KisilikRengi")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

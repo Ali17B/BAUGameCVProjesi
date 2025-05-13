@@ -22,6 +22,7 @@ namespace OyunlastirilmisCV.Web.Controllers
         private readonly ITempDataProvider _tempDataProvider;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UygulamaDbContext _context;
+        private readonly IKisilikTestiServisi _kisilikTestiServisi;
         public IActionResult Dashboard()
         {
             var kullaniciId = HttpContext.Session.GetInt32("KullaniciId");
@@ -62,7 +63,8 @@ namespace OyunlastirilmisCV.Web.Controllers
     IServiceProvider serviceProvider,
     ITempDataProvider tempDataProvider,
     IHttpContextAccessor httpContextAccessor,
-    UygulamaDbContext context)
+    UygulamaDbContext context,
+     IKisilikTestiServisi kisilikTestiServisi)
         {
             _veritabani = veritabani;
             _seviyeHesaplayici = seviyeHesaplayici;
@@ -71,6 +73,7 @@ namespace OyunlastirilmisCV.Web.Controllers
             _tempDataProvider = tempDataProvider;
             _httpContextAccessor = httpContextAccessor;
             _context = context;
+            _kisilikTestiServisi = kisilikTestiServisi;
         }
 
         [HttpGet]
@@ -312,6 +315,74 @@ namespace OyunlastirilmisCV.Web.Controllers
 
             return RedirectToAction("Dashboard");
         }
+
+        [HttpGet]
+        public IActionResult KisilikTesti()
+        {
+            var kullaniciId = HttpContext.Session.GetInt32("KullaniciId");
+            if (kullaniciId == null)
+                return RedirectToAction("Login");
+
+            // daha önce test yapılıp yapmadığını kontrol ediyoruz
+            var dahaOnceYapildiMi = _veritabani.KisilikTestiSonuclari.Any(x => x.KullaniciId == kullaniciId.Value);
+            if (dahaOnceYapildiMi)
+            {
+                TempData["KisilikTestiMesaj"] = "Kişilik testini zaten tamamladınız.";
+                return RedirectToAction("Dashboard");
+            }
+
+            var sorular = _veritabani.KisilikTestiSorulari.ToList();
+            return View(sorular);
+        }
+
+
+        [HttpPost]
+        public IActionResult KisilikTesti(List<KisilikTestiCevapModel> cevaplar)
+        {
+            var kullaniciId = HttpContext.Session.GetInt32("KullaniciId");
+            if (kullaniciId == null) return RedirectToAction("Login");
+
+            // Renklerin toplam puanları
+            int mavi = 0, yesil = 0, sari = 0, kirmizi = 0;
+
+            foreach (var cevap in cevaplar)
+            {
+                mavi += cevap.Mavi;
+                yesil += cevap.Yesil;
+                sari += cevap.Sari;
+                kirmizi += cevap.Kirmizi;
+            }
+
+            // En yüksek puanı alan renk
+            string kisilikRengi = new Dictionary<string, int>
+    {
+        { "Mavi", mavi },
+        { "Yeşil", yesil },
+        { "Sarı", sari },
+        { "Kırmızı", kirmizi }
+    }.OrderByDescending(x => x.Value).First().Key;
+
+            // Kullanıcıya kaydet
+            var kullanici = _veritabani.Kullanicilar.Find(kullaniciId.Value);
+            kullanici.KisilikRengi = kisilikRengi;
+
+            // Test sonucu tablosuna da ekle (isteğe bağlı)
+            _veritabani.KisilikTestiSonuclari.Add(new KisilikTestiSonucu
+            {
+                KullaniciId = kullaniciId.Value,
+                Renk = kisilikRengi,
+                Tarih = DateTime.Now
+            });
+
+            _veritabani.SaveChanges();
+
+            TempData["KisilikTestiTamamlandi"] = $"Kişilik Testiniz tamamlandı! Renginiz: {kisilikRengi}";
+            return RedirectToAction("Dashboard");
+        }
+
+
+
+
 
 
 

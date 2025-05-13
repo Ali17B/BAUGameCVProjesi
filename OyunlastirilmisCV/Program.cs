@@ -16,7 +16,10 @@ builder.Services.AddDbContext<UygulamaDbContext>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
 builder.Services.AddScoped<ISeviyeHesaplayici, SeviyeHesaplayici>();
+builder.Services.AddScoped<IKisilikTestiServisi, KisilikTestiServisi>();
+
 builder.Services.AddHttpContextAccessor();
+
 
 var app = builder.Build();
 

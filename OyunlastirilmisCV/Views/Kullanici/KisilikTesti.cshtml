@@ -1,0 +1,30 @@
+﻿@model List<OyunlastirilmisCV.Entities.KisilikTestiSorusu>
+
+<h2 class="text-center">🧠 KİŞİLİK TESTİ</h2>
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Mavi</th>
+                <th>Yeşil</th>
+                <th>Sarı</th>
+                <th>Kırmızı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@Model[i].Mavi <input type="number" name="cevaplar[@i].Mavi" min="1" max="4" required /></td>
+                    <td>@Model[i].Yesil <input type="number" name="cevaplar[@i].Yesil" min="1" max="4" required /></td>
+                    <td>@Model[i].Sari <input type="number" name="cevaplar[@i].Sari" min="1" max="4" required /></td>
+                    <td>@Model[i].Kirmizi <input type="number" name="cevaplar[@i].Kirmizi" min="1" max="4" required /></td>
+                    <input type="hidden" name="cevaplar[@i].SoruId" value="@Model[i].Id" />
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary">Testi Bitir</button>
+</form>

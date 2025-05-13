@@ -36,6 +36,12 @@ namespace OyunlastirilmisCV.Entities
         public ICollection<KullaniciProjesi> KullaniciProjeleri { get; set; }
         public ICollection<KullaniciRozeti> KullaniciRozetleri { get; set; }
 
+        public KisilikTestiSonucu KisilikTestiSonucu { get; set; }
+
+        public string KisilikRengi { get; set; }
+
+
+
 
 
     }
