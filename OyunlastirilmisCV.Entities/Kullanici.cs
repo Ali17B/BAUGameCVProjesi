@@ -38,7 +38,7 @@ namespace OyunlastirilmisCV.Entities
 
         public KisilikTestiSonucu KisilikTestiSonucu { get; set; }
 
-        public string KisilikRengi { get; set; }
+        public string? KisilikRengi { get; set; }
 
 
 

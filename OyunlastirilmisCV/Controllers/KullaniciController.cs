@@ -376,7 +376,7 @@ namespace OyunlastirilmisCV.Web.Controllers
 
             _veritabani.SaveChanges();
 
-            TempData["KisilikTestiTamamlandi"] = $"Kişilik Testiniz tamamlandı! Renginiz: {kisilikRengi}";
+            TempData["KisilikTestiTamamlandi"] = $"Kisilik Testiniz tamamlandi! Renginiz: {kisilikRengi}. Avatar cerceveniz bu renge gore guncellendi.";
             return RedirectToAction("Dashboard");
         }
 
