@@ -44,5 +44,3 @@ SelectPdf
 Bootstrap
 
 Git & GitHub
-
-Bu proje halen geliştirilmeye devam etmektedir. Yeni rozet türleri, kullanıcıya özel grafiksel analiz ekranları, kişilik testi gibi özellikler planlanmaktadır.
