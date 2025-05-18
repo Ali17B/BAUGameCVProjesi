@@ -353,7 +353,7 @@ namespace OyunlastirilmisCV.Web.Controllers
                 kirmizi += cevap.Kirmizi;
             }
 
-            // En yüksek puanı alan renk
+            
             string kisilikRengi = new Dictionary<string, int>
     {
         { "Mavi", mavi },
@@ -362,11 +362,11 @@ namespace OyunlastirilmisCV.Web.Controllers
         { "Kırmızı", kirmizi }
     }.OrderByDescending(x => x.Value).First().Key;
 
-            // Kullanıcıya kaydet
+            
             var kullanici = _veritabani.Kullanicilar.Find(kullaniciId.Value);
             kullanici.KisilikRengi = kisilikRengi;
 
-            // Test sonucu tablosuna da ekle (isteğe bağlı)
+            
             _veritabani.KisilikTestiSonuclari.Add(new KisilikTestiSonucu
             {
                 KullaniciId = kullaniciId.Value,

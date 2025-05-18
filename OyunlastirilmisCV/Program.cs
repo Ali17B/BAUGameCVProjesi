@@ -4,7 +4,7 @@ using OyunlastirilmisCV.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//DbContext'i servislere ekliyoruz
+//DbContexti servislere ekliyoruz
 builder.Services.AddDbContext<UygulamaDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("VarsayilanBaglanti"),

@@ -28,10 +28,30 @@
     <h1>@Model.AdSoyad - @Model.Sinifi</h1>
     <p>Seviye: @Model.Seviye</p>
 
+
+    @{
+        var baseUrl = $"{Context.Request.Scheme}://{Context.Request.Host}";
+        var fullAvatarUrl = baseUrl + Model.AvatarUrl;
+
+        string renk = Model.KisilikRengi?.ToLower() ?? "gray";
+        string borderColor = renk switch
+        {
+            "mavi" => "#0d6efd",    
+            "yeşil" => "#198754",   
+            "sarı" => "#ffc107",    
+            "kırmızı" => "#dc3545", 
+            _ => "#6c757d"          
+        };
+    }
+
+
     @if (!string.IsNullOrEmpty(Model.AvatarUrl))
     {
-        <img src="@Model.AvatarUrl" width="100" height="100" style="border-radius:50%;" />
+        <img src="@fullAvatarUrl" width="100" height="100"
+             style="border-radius:50%; border: 4px solid @borderColor;" />
     }
+
+
 
     <div class="box">
         <div class="title">🧠 Beceriler</div>
