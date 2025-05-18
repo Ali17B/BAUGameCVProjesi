@@ -294,7 +294,8 @@ namespace OyunlastirilmisCV.Web.Controllers
         "/img/avatar1.png",
         "/img/avatar2.png",
         "/img/avatar3.png",
-        "/img/avatar4.png"
+        "/img/avatar4.png",
+        "/img/avatar5.png"
     };
 
             return View();

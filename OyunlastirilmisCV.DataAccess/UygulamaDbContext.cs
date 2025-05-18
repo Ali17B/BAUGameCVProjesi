@@ -103,6 +103,17 @@ namespace OyunlastirilmisCV.DataAccess
 
 
 
+            modelBuilder.Entity<Rozet>().HasData(
+                new Rozet
+        {
+            Id = 1,
+            Ad = "Usta Beceri",
+            IkonUrl = "/img/rozetler/usta.png"
+        }
+    );
+
+
+
             base.OnModelCreating(modelBuilder);
         }
 

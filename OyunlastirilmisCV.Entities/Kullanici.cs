@@ -8,7 +8,15 @@ namespace OyunlastirilmisCV.Entities
         Yazilimci,
         VeriAnalisti,
         DevOps,
-        Tasarimci
+        Tasarimci,
+        ProjeYonetimi,
+        OyunGelistirici,
+        MobilGelistirici,
+        WebGelistirici,
+        VeriBilimci,
+        SistemYonetimi,
+        OyunTesti,
+        OyunGrafikTasarimcisi,
     }
 
     public class Kullanici

@@ -51,6 +51,24 @@
              style="border-radius:50%; border: 4px solid @borderColor;" />
     }
 
+    @if (Model.KullaniciRozetleri != null && Model.KullaniciRozetleri.Any())
+    {
+        foreach (var rozet in Model.KullaniciRozetleri)
+        {
+            if (rozet.Rozet != null)
+            {
+                var rozetUrl = baseUrl + rozet.Rozet.IkonUrl;
+                <img src="@rozetUrl" width="60" height="60" style="margin-right:10px;" />
+            }
+        }
+    }
+    else
+    {
+        <p>Henüz rozet kazanmadınız.</p>
+    }
+
+
+
 
 
     <div class="box">
