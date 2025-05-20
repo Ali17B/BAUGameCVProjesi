@@ -1,5 +1,6 @@
-🎮 Oyunlaştırılmış CV Platformu
-Bu proje, BAU Bright Full Stack Web Development Kursu kapsamında geliştirilmiştir. Amaç, kullanıcıların klasik CV sunumlarının ötesine geçerek, becerilerini ve projelerini oyunlaştırılmış bir yapı ile sunabilecekleri interaktif bir platform oluşturmaktır.
+🎮 Oyunlaştırılmış CV Platformu "ResuRPG (Resume + RPG:Rol Play Game)"
+
+Bu proje (ResuRPG), BAU Bright Full Stack Web Development Kursu kapsamında geliştirilmiştir. Amaç, kullanıcıların klasik CV sunumlarının ötesine geçerek, becerilerini ve projelerini oyunlaştırılmış bir yapı ile sunabilecekleri interaktif bir platform oluşturmaktır.
 
 🎯 Projenin Amacı
 Kariyer başlangıcındaki geliştiricilerin veya öğrencilerin; teknik becerilerini, projelerini ve gelişim seviyelerini eğlenceli, görsel ve dinamik bir şekilde sergileyebilmesini sağlamaktır. Kullanıcılar kendi profillerine giriş yaparak:
@@ -26,12 +27,14 @@ Gerçekleştirilen Özellikler
 
 ✅ PDF çıktısı alma (HTML to PDF)
 
+✅ Kişilik Testi
+
 ✅ Entity Framework ile veritabanı yönetimi
 
 ✅ GitHub versiyon kontrolü
 
 🧩 Kullanılan Teknolojiler
-ASP.NET Core MVC
+ASP.NET Core (8) MVC
 
 Entity Framework Core
 
